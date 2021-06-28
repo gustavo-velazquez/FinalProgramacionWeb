@@ -42,15 +42,15 @@ session_start();
 
 
 		$("#btnCrearUsuario").click(function(){
-			location.href = "crearusuario.php";
+			location.href = "recursos/crearusuario.php";
 		});
 
 		$("#btnSesionCliente").click(function(){
-			location.href = "iniciosesioncliente.php";
+			location.href = "recursos/iniciosesioncliente.php";
 		});
 
 		$("#btnSesionAdministrativo").click(function(){
-			location.href = "iniciosesionadministrativo.php";
+			location.href = "recursos/iniciosesionadministrativo.php";
 		});
 
 
