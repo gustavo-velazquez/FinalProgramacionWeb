@@ -3,7 +3,7 @@
   $servidor = "localhost";
   $usuario = "root";
   $contrasenia = "";
-  $basededatos = "final_rodriguez";
+  $basededatos = "Proyecto_final";
 
   $conexion = mysqli_connect($servidor, $usuario, $contrasenia)
               or die ("No se ha podido conectar al servidor de Base de Datos.");

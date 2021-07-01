@@ -3,7 +3,7 @@
 session_start();
 
 session_destroy();
-header('Location: http://localhost/final_rodriguez/index.php');
+header('Location: http://localhost/Proyecto_final/index.php');
 
 
 ?>
