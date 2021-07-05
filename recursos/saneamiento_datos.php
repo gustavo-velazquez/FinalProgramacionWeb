@@ -23,6 +23,7 @@
               {
                 $_SESSION['mail'] = $mail;
                 echo 'log';
+                $_SESSION['tiempo'] = time();
               }
           }
           else{
@@ -188,43 +189,42 @@
 
 
     case 'comprar_producto':
-      $id_producto = $_POST['id_producto'];
-      $cantidad = $_POST['cantidad'];
 
-      $consulta = "SELECT cantidad from producto where id_producto = '".$id_producto."' ";
-      $resultado = mysqli_query($conexion,$consulta);
-      $res = mysqli_fetch_array($resultado);
-      if($res){
-          $stock = $res['cantidad'];
-          $stock = $stock - $cantidad;
-
-          if($stock < 0){
-              echo 'stock';
-          }
-
-          else{
-              $consulta = "UPDATE producto SET cantidad = '".$stock."' WHERE id_producto =  '".$id_producto."'";
-              $resultado = mysqli_query($conexion,$consulta);
-
-              $consulta = "SELECT id_cliente from cliente where mail = '".$_SESSION['mail']."' ";
-              $resultado = mysqli_query($conexion,$consulta);
-              $res = mysqli_fetch_array($resultado);
-              $id_cliente = $res['id_cliente'];
-
-              date_default_timezone_set("America/Argentina/Buenos_Aires");
-              $fecha = date('y-m-d h:i:s'); 
-              $consulta = "INSERT INTO `orden_compra` (`id_cliente`, `id_producto`, `cantidad`, `fecha`)
-                            VALUES ('".$id_cliente."', '".$id_producto."', '".$cantidad."', '".$fecha."')";
-              $resultado = mysqli_query($conexion, $consulta);
-
-              echo 'success';
-          }
-      }
-
-      else{
-          echo 'inexistente';
-      }
+      //session_start();
       
+      if(isset($_SESSION['mail'])){
+          $id_producto = $_POST['id_producto'];
+          //$cantidad = $_POST['cantidad'];
+    
+          $consulta = "SELECT vendido from producto where id_producto = '".$id_producto."' ";
+          $resultado = mysqli_query($conexion,$consulta);
+          $res = mysqli_fetch_array($resultado);
+          if($res){
+              $stock = $res['vendido'];
+              $stock = 1;
+              
+              }
+    
+              
+                  $consulta = "UPDATE producto SET vendido = '".$stock."' WHERE id_producto =  '".$id_producto."'";
+                  $resultado = mysqli_query($conexion,$consulta);
+    
+                  $consulta = "SELECT id_cliente from cliente where mail = '".$_SESSION['mail']."' ";
+                  $resultado = mysqli_query($conexion,$consulta);
+                  $res = mysqli_fetch_array($resultado);
+                  $id_cliente = $res['id_cliente'];
+    
+                  date_default_timezone_set("America/Argentina/Buenos_Aires");
+                  $fecha = date('y-m-d h:i:s'); 
+                  $consulta = "INSERT INTO `orden_compra` (`id_cliente`, `id_producto`, `fecha`)
+                                VALUES ('".$id_cliente."', '".$id_producto."', '".$fecha."')";
+                  $resultado = mysqli_query($conexion, $consulta);
+    
+                  echo 'success';
+
+          
+      }else
+        echo 'login';
 
     break;
 

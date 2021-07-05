@@ -1,0 +1,79 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Asap:ital,wght@1,500&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Asap', sans-serif;
+  }
+  body {
+    height: 100%;
+    width: 100%;
+    margin: 0px;
+    background-color: rgb(255, 255, 255);
+   
+  }
+
+  nav {
+    background-color: #00284d;
+    width: 100%;
+    position: absolute;
+  
+  }
+  
+  .icono img {
+    width: 4%;
+    margin-top: 2px;
+    border-radius: 80%;
+    float: left;
+    margin-left: 30px;
+  }
+  nav ul {
+    list-style: none;
+    margin-right: 50px;
+  }
+  nav ul li {
+    float: right;
+    font-family: 'Asap', sans-serif;
+    font-size: 18px;
+  }
+  nav ul li a {
+    display: block; /* Convertimos los elementos a en elementos bloque para manipular el padding */
+    padding: 10px;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+  }
+  nav ul li:hover {
+    background: #005cb3;
+  }
+  
+  .titulo {
+    margin:auto;
+    
+  }
+ .titulo h1 {
+    padding: auto;
+    margin-top: 5px;
+    font-size: 80px;
+    -webkit-text-fill-color: #00284d;
+    -webkit-text-stroke: 1px rgb(255, 253, 253);
+    
+ 
+  }
+  .titulo{
+    background-image: url("../img/pinturas.jpg");;
+    background-size: auto;
+    text-align: center;
+    height: 200px;
+    padding-top: 50px;
+    
+    
+  }
+
+  .user{
+    width: 100%;
+  }
+  #user{
+    float: right;
+    margin: 10px;
+  }

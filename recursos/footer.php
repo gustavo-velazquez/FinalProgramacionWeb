@@ -46,7 +46,7 @@
 
                     <div class="row2">
                         <img src="../icon/contact.png">
-                         <label>CafeAtlantico@gmail.com</label>
+                         <label>ArteMDP@gmail.com</label>
                     </div>
                 </div>
             </div>

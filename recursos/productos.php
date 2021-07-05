@@ -1,11 +1,11 @@
 <?php 
-session_start();
+include "tiempo_sesion.php"; 
 
-    if(!isset($_SESSION['mail'])) 
-    {
-    	header('Location: http://localhost/final_rodriguez/index.php');
-    }
-    
+if(!isset($_SESSION['mail'])) 
+{
+	header('Location: http://localhost/Proyecto_final/index.php');
+}
+
 ?>
 <!DOCTYPE html>
 <html>

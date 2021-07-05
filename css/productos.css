@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Asap:ital,wght@1,500&display=swap');
+
+
+html,body{
+    margin: 0;
+    padding: 0;
+}
+body{
+    width: 100%;
+    height: 100%;
+    font-family: sans-serif;
+    letter-spacing: 0.03em;
+    line-height: 1.6;
+}
+.container{
+    width: auto;
+    max-width: auto;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.container .card{
+    width: 275px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 2px rgba(0,0,0,0.2);
+    overflow: hidden;
+    margin: 20px;
+    text-align: center;
+    transition: all 0.25s;
+    float: left;
+    background-color: #809fff;
+    align-content: center;
+
+}
+
+.container .card:hover{
+    transform: translate(-15px);
+    box-shadow: 0 12px 16px rgba(0,0,0,0.2);
+}
+
+.container .card img{
+    width: 260px;
+    height: 220px;
+    margin: 5px;
+    border-radius: 8px;
+    }
+.card h1{
+        color: rgb(182, 8, 8);
+        
+    
+}
+
+
+
+.container .card h4{
+    font-weight: 600;
+}
+
+.container .card a{
+    font-weight: 500;
+    text-decoration: none;
+    color: rgb(249, 249, 250);
+}
+
+/*boton comprar*/
+
+
+.boton{
+    text-align:center;
+    text-decoration: none;
+font-family: 'Asap', sans-serif;
+display:inline-block;
+    color: #FFF;
+    background: #7F8C8D;
+    padding: 15px 30px;
+    white-space: nowrap;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    margin: 10px 5px;
+    -webkit-transition: all 0.2s ease-in-out;
+    -ms-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    background: #00284d;
+}
+
+.boton:hover{
+background: #005cb3;
+}
+
+.not-active { 
+    pointer-events: none; 
+    cursor: default; 
+} 
+
+/*////////////////////////////////////////////////////*/
