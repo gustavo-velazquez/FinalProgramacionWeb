@@ -73,7 +73,20 @@
   .user{
     width: 100%;
   }
-  #user{
+   #user{
     float: right;
-    margin: 10px;
+    margin: 5px;
+    text-decoration: none;
+    padding: 8px;
+    font-weight: 600;
+    font-size: 20px;
+    color: #ffffff;
+    background-color: #00284d;
+    border-radius: 6px;
   }
+  #user i{
+    color: #005cb3;
+  }
+
+
+  

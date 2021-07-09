@@ -29,7 +29,6 @@ session_start();
                     
                     <li><a href="recursos/iniciosesioncliente.php">Iniciar Sesion</a></li>
                     <li><a href="recursos/crearusuario.php">Registrarse</a></li>
-                    <li><a href="inicio.php#SobreNosotros">Sobre Nosotros</a></li>
                     <li><a href="index.php">Inicio</a></li>
                     
                 </ul>

@@ -13,21 +13,35 @@ error_reporting(E_ALL);
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Bruno Rodriguez TP Final</title>
+	<title>Home TP Final</title>
 	<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
 	<link rel="stylesheet" type="text/css" href="..\css\styles.css" media="screen"/>
 	<link rel="stylesheet" type="text/css" href="..\css\footer.css" media="screen"/>
 	<link rel="stylesheet" type="text/css" href="..\css\menu.css" media="screen"/>
 	<link rel="stylesheet" type="text/css" href="..\css\chat.css" media="screen"/>
 	<link rel="stylesheet" type="text/css" href="..\css\productos.css" media="screen"/>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://kit.fontawesome.com/56d98c609c.js" crossorigin="anonymous"></script>
+	
 </head>
 <body>
 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-<a href="contacto.php" class="float" target="_blank">
-<i class="fa fa-commenting-o my-float" aria-hidden="true" "></i>
+<a onclick="document.getElementById('ventana1').style.visibility='visible'" class="float " target="_blank">
+<i class="far fa-comment-dots" aria-hidden="true"></i>
 </a>
+
+    <div class="ventana" id="ventana1">
+        <button class="cerrar" onclick="document.getElementById('ventana1').style.visibility='hidden'">X</button>
+        <h3>Contacto</h3>
+		<div id="formulariojquery">
+			
+			<input type="text" id="asunto" placeholder="Asunto">
+			<textarea name="mensaje" id="mensaje" placeholder="Escriba aqui su mensaje..."></textarea>
+			<img src="../captcha/captcha.php"/>
+			<input type="text" id="captchaTexto" placeholder="Captcha">
+			
+			<button id="btn_log" type="submit" >Enviar</button>
+		</div>
+    </div>
 
 
 	<header>
@@ -41,9 +55,21 @@ error_reporting(E_ALL);
         </div>
     </header>
 
+<!-- Mensajes recibidos -->
+
+	<div class="ventana2" id="ventana2">
+        <button class="cerrar" onclick="document.getElementById('ventana2').style.visibility='hidden'">X</button>
+        <h3>Mensajes recibidos</h3>
+		<div class="contenedormsj">
+		<?php include "listar_mensajes_cliente.php"?>
+			
+		</div>
+    </div>
+
 	<div class="user">
-		<a href="#" id="user" disabled class="btn btn-info btn-lg">
-          <span class="glyphicon glyphicon-user"></span> <?php echo $_SESSION['mail']; ?>
+		<a id="user" class="btnuser">
+		<i class="far fa-user" ></i>
+          <span class="usernombre"></span> <?php echo $_SESSION['mail']; ?>
         </a>
 	
 	</div>
@@ -130,6 +156,34 @@ $(document).ready(function(){
 		
 		})
 	})
+
+////////////Enviar mensaje////////////////
+	$('#btn_log').click(function(){
+			let asunto = $('#asunto').val();
+			let mensaje = $('#mensaje').val();
+			let captchaTexto = $('#captchaTexto').val();
+
+			$.post('saneamiento_datos.php',{accion:'contacto_cliente',asunto:asunto,mensaje:mensaje,captchaTexto:captchaTexto},function(data){
+				console.log(data);
+				if(data == 'captcha'){	
+					alert('Captcha Invalido');
+				}
+				else{
+					if(data == 'mensaje'){
+						alert('Mensaje enviado correctamente')
+						location.href = "home_cliente.php";
+					}
+					else{
+						if(data == 'error'){
+							alert('No se ha podido enviar el Mensaje');	
+						}
+					}
+				}
+			
+			});
+			});
+
+
 });
 
 </script>

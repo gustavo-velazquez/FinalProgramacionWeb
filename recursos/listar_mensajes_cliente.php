@@ -1,5 +1,5 @@
 <?php 
-	session_start();
+	//session_start();
 	include('conexion.php');
 
 	$query = "SELECT * FROM contacto WHERE mail_destino ='".$_SESSION['mail']."' ";
@@ -7,24 +7,27 @@
 	$tabla = mysqli_query($conexion, $query);
 
 
-	echo '<table class="table">
+	/*echo '<table class="table">
 		 	<th> ID MENSAJE </th>
 		 	<th> MAIL ORIGEN </th>
 		 	<th> ASUNTO </th>
 		 	<th> MENSAJE </th>';
-
+*/
 
 	while ($aux = mysqli_fetch_array($tabla))
 	{
-		echo '<tr> 
+		/*echo '<tr> 
 			<td>'.$aux['id_contacto'].'</td>				 
 			<td>'.$aux['mail_origen'].'</td>
 			<td>'.$aux['asunto'].'</td>
 			<td>'.$aux['mensaje'].'</td>	
-		 </tr>';
+		 </tr>';*/
+		echo '<h4>'.$aux['mail_origen'].'</h4>
+				<div class="msj"><p>'.$aux['mensaje'].'</p></div>';
+
 	}
 
 
-	echo "</table>";
+	//echo "</table>";
 
  ?>
